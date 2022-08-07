@@ -10,7 +10,6 @@
     
 </head>
 <body>
-
     <!-- login part -->
     <br><br>
     <div class="custom" id="loginForm"><br><br>
@@ -26,35 +25,32 @@
     </div><br><br><br>
 
 
-    <div class="custom" id="transaction">
+    <div class="custom" id="transaction"><br>
         <h3 class="text-center">Transaction</h3>
         <div class="process">
             <div class="row">
                 <div class="d-flex">
                     <div class="deposit col-4 p-3" id="id">
                         <h5>Deposit</h5>
-                        <h2>$ <span id="currentDps">20</span></h2><br>
+                        <h2>$<span id="currentDps">00</span></h2><br>
                         <input type="number" name="" class="form-control" id="dpsInp" placeholder="Deposit amount"><br>
                         <button class="btn btn-success" id="dps_btn">Deposit</button>
                     </div>
                     <div class="withdraw col-4 p-3" id="">
                         <h5>Withdraw</h5>
-                        <h2>$00</h2><br>
-                        <input type="number" name="" class="form-control" id="" placeholder="Withdraw amount"><br>
-                        <button class="btn btn-success" id="">Withdraw</button>
+                        <h2>$<span id="currentWtd">00</span></h2><br>
+                        <input type="number" name="" class="form-control" id="wtdInp" placeholder="Withdraw amount"><br>
+                        <button class="btn btn-success" id="wtd_btn">Withdraw</button>
                     </div>
                     <div class="total col-4 p-3" id="">
                         <h5>Total Balance</h5>
-                        <h2>$100</h2><br><br><br>
+                        <h2>$<span id="totalAmount">1000</span></h2><br><br><br>
                         <button class="btn btn-success" id="backToLogin">Back to Login</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-
-
 
 
     <!-- bootstrap js -->
@@ -67,12 +63,9 @@
         loginButton.addEventListener('click', function(){
             var loginInfo = document.getElementById('loginForm');
             loginInfo.style.display = "none";
-
-
             var transactionInfo = document.getElementById('transaction');
             transactionInfo.style.display = "grid";
         })
-
 
 
         var backToLoginButton = document.getElementById('backToLogin');
@@ -88,24 +81,32 @@
         dpsButton.addEventListener('click', function(){
             var dpsInput = document.getElementById('dpsInp').value;
             var dpsAmount = parseFloat(dpsInput);
-
-
-            var currDps = document.getElementById('currentDps').innerText;
-            var currentDpsAmount = parseFloat(currDps);
-            
+            var currentDps = document.getElementById('currentDps').innerText;
+            var currentDpsAmount = parseFloat(currentDps); 
             var totalDps = dpsAmount + currentDpsAmount;
-
-
-
-
-
-
-
-
-            console.log(totalDps);
+            var balance = document.getElementById('totalAmount').innerText;
+            var totalBalance = parseFloat(balance);
+            var finalBalance = totalBalance + dpsAmount;
+            document.getElementById('currentDps').innerText = totalDps;
+            document.getElementById('dpsInp').value = "";
+            document.getElementById('totalAmount').innerText = finalBalance;
         })
 
 
+        var wtdButton = document.getElementById("wtd_btn");
+        wtdButton.addEventListener('click', function(){
+            var wtdInput = document.getElementById('wtdInp').value;
+            var wtdAmount = parseFloat(wtdInput);
+            var currentWtd = document.getElementById('currentWtd').innerText;
+            var currentWtdAmount = parseFloat(currentWtd);
+            var totalWtd = wtdAmount + currentWtdAmount;
+            var balance = document.getElementById('totalAmount').innerText;
+            var totalBalance = parseFloat(balance);
+            var finalBalance = totalBalance - wtdAmount;
+            document.getElementById('currentWtd').innerText = totalWtd;
+            document.getElementById('wtdInp').value = "";
+            document.getElementById('totalAmount').innerText = finalBalance;
+        })
     </script>
 
 
