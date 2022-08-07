@@ -13,7 +13,7 @@
 
     <!-- login part -->
     <br><br>
-    <div class="login" id="loginForm"><br><br>
+    <div class="custom" id="loginForm"><br><br>
         <h3 class="text-center">Welcome to Banking System</h3><br>
         <div class="row justify-content-md-center">
             <div class="col-10">
@@ -23,11 +23,34 @@
                 <button class="btn btn-success" id="login">LogIn</button>
             </div>
         </div>
-    </div>
+    </div><br><br><br>
 
 
-    <div class="transaction">
-
+    <div class="custom" id="transaction">
+        <h3 class="text-center">Transaction</h3>
+        <div class="process">
+            <div class="row">
+                <div class="d-flex">
+                    <div class="deposit col-4 p-3" id="id">
+                        <h5>Deposit</h5>
+                        <h2>$ <span id="currentDps">20</span></h2><br>
+                        <input type="number" name="" class="form-control" id="dpsInp" placeholder="Deposit amount"><br>
+                        <button class="btn btn-success" id="dps_btn">Deposit</button>
+                    </div>
+                    <div class="withdraw col-4 p-3" id="">
+                        <h5>Withdraw</h5>
+                        <h2>$00</h2><br>
+                        <input type="number" name="" class="form-control" id="" placeholder="Withdraw amount"><br>
+                        <button class="btn btn-success" id="">Withdraw</button>
+                    </div>
+                    <div class="total col-4 p-3" id="">
+                        <h5>Total Balance</h5>
+                        <h2>$100</h2><br><br><br>
+                        <button class="btn btn-success" id="backToLogin">Back to Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 
@@ -44,7 +67,45 @@
         loginButton.addEventListener('click', function(){
             var loginInfo = document.getElementById('loginForm');
             loginInfo.style.display = "none";
+
+
+            var transactionInfo = document.getElementById('transaction');
+            transactionInfo.style.display = "grid";
         })
+
+
+
+        var backToLoginButton = document.getElementById('backToLogin');
+        backToLoginButton.addEventListener('click', function(){
+            var loginInfo = document.getElementById('loginForm');
+            loginInfo.style.display = "grid";
+            var transactionInfo = document.getElementById('transaction');
+            transactionInfo.style.display = "none";
+        })
+
+
+        var dpsButton = document.getElementById('dps_btn');
+        dpsButton.addEventListener('click', function(){
+            var dpsInput = document.getElementById('dpsInp').value;
+            var dpsAmount = parseFloat(dpsInput);
+
+
+            var currDps = document.getElementById('currentDps').innerText;
+            var currentDpsAmount = parseFloat(currDps);
+            
+            var totalDps = dpsAmount + currentDpsAmount;
+
+
+
+
+
+
+
+
+            console.log(totalDps);
+        })
+
+
     </script>
 
 
