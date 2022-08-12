@@ -27,14 +27,19 @@ dpsButton.addEventListener('click', function(){
         return
     }
     var currentDps = document.getElementById('currentDps').innerText;
-    var currentDpsAmount = parseFloat(currentDps); 
+    var currentDpsAmount = parseFloat(currentDps);
+    var currentService = document.getElementById('serviceAmount').innerText;
+    var currentServiceAmount = parseFloat(currentService);
+    var totalServiceAmount = (dpsAmount * 1.5) / 100; 
+    var totalServiceAmountDisplay = (currentServiceAmount + totalServiceAmount).toFixed(2);
     var totalDps = (dpsAmount + currentDpsAmount).toFixed(2);
     var balance = document.getElementById('totalAmount').innerText;
     var totalBalance = parseFloat(balance);
-    var finalBalance = (totalBalance + dpsAmount).toFixed(2);
+    var finalBalance = (totalBalance + dpsAmount - totalServiceAmount).toFixed(2);
     document.getElementById('currentDps').innerText = totalDps;
     document.getElementById('dpsInp').value = "";
     document.getElementById('totalAmount').innerText = finalBalance;
+    document.getElementById('serviceAmount').innerText = totalServiceAmountDisplay;
 })
 
 
@@ -50,6 +55,10 @@ wtdButton.addEventListener('click', function(){
     }
     var currentWtd = document.getElementById('currentWtd').innerText;
     var currentWtdAmount = parseFloat(currentWtd);
+    var currentService = document.getElementById('serviceAmount').innerText;
+    var currentServiceAmount = parseFloat(currentService);
+    var totalServiceAmount = (wtdAmount * 1.5) / 100;
+    var totalServiceAmountDisplay = (currentServiceAmount + totalServiceAmount).toFixed(2);
     var totalWtd = (wtdAmount + currentWtdAmount).toFixed(2);
     var balance = document.getElementById('totalAmount').innerText;
     var totalBalance = parseFloat(balance);
@@ -58,8 +67,9 @@ wtdButton.addEventListener('click', function(){
         document.getElementById('wtdInp').value = "";
         return
     }
-    var finalBalance = (totalBalance - wtdAmount).toFixed(2);
+    var finalBalance = (totalBalance - wtdAmount - totalServiceAmount).toFixed(2);
     document.getElementById('currentWtd').innerText = totalWtd;
     document.getElementById('wtdInp').value = "";
     document.getElementById('totalAmount').innerText = finalBalance;
+    document.getElementById('serviceAmount').innerText = totalServiceAmountDisplay;
 })
