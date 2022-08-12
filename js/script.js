@@ -62,12 +62,12 @@ wtdButton.addEventListener('click', function(){
     var totalWtd = (wtdAmount + currentWtdAmount).toFixed(2);
     var balance = document.getElementById('totalAmount').innerText;
     var totalBalance = parseFloat(balance);
-    if(totalBalance < wtdAmount){
+    var finalBalance = (totalBalance - wtdAmount - totalServiceAmount).toFixed(2);
+    if(finalBalance < 0.01){
         alert('Transaction  Failed!');
         document.getElementById('wtdInp').value = "";
         return
     }
-    var finalBalance = (totalBalance - wtdAmount - totalServiceAmount).toFixed(2);
     document.getElementById('currentWtd').innerText = totalWtd;
     document.getElementById('wtdInp').value = "";
     document.getElementById('totalAmount').innerText = finalBalance;
