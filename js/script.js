@@ -28,10 +28,10 @@ dpsButton.addEventListener('click', function(){
     }
     var currentDps = document.getElementById('currentDps').innerText;
     var currentDpsAmount = parseFloat(currentDps); 
-    var totalDps = dpsAmount + currentDpsAmount;
+    var totalDps = (dpsAmount + currentDpsAmount).toFixed(2);
     var balance = document.getElementById('totalAmount').innerText;
     var totalBalance = parseFloat(balance);
-    var finalBalance = totalBalance + dpsAmount;
+    var finalBalance = (totalBalance + dpsAmount).toFixed(2);
     document.getElementById('currentDps').innerText = totalDps;
     document.getElementById('dpsInp').value = "";
     document.getElementById('totalAmount').innerText = finalBalance;
@@ -50,10 +50,15 @@ wtdButton.addEventListener('click', function(){
     }
     var currentWtd = document.getElementById('currentWtd').innerText;
     var currentWtdAmount = parseFloat(currentWtd);
-    var totalWtd = wtdAmount + currentWtdAmount;
+    var totalWtd = (wtdAmount + currentWtdAmount).toFixed(2);
     var balance = document.getElementById('totalAmount').innerText;
     var totalBalance = parseFloat(balance);
-    var finalBalance = totalBalance - wtdAmount;
+    if(totalBalance < wtdAmount){
+        alert('Invalid Transition!');
+        document.getElementById('wtdInp').value = "";
+        return
+    }
+    var finalBalance = (totalBalance - wtdAmount).toFixed(2);
     document.getElementById('currentWtd').innerText = totalWtd;
     document.getElementById('wtdInp').value = "";
     document.getElementById('totalAmount').innerText = finalBalance;
