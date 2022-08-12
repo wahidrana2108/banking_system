@@ -63,7 +63,7 @@ wtdButton.addEventListener('click', function(){
     var balance = document.getElementById('totalAmount').innerText;
     var totalBalance = parseFloat(balance);
     if(totalBalance < wtdAmount){
-        alert('Invalid Transition!');
+        alert('Transaction  Failed!');
         document.getElementById('wtdInp').value = "";
         return
     }
