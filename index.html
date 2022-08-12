@@ -32,13 +32,13 @@
                 <div class="d-flex">
                     <div class="deposit col-4 p-3" id="id">
                         <h5>Deposit</h5>
-                        <h2>$<span id="currentDps">00</span></h2><br>
+                        <h2>$<span id="currentDps">0</span></h2><br>
                         <input type="number" name="" class="form-control" id="dpsInp" placeholder="Deposit amount"><br>
                         <button class="btn btn-success" id="dps_btn">Deposit</button>
                     </div>
                     <div class="withdraw col-4 p-3" id="">
                         <h5>Withdraw</h5>
-                        <h2>$<span id="currentWtd">00</span></h2><br>
+                        <h2>$<span id="currentWtd">0</span></h2><br>
                         <input type="number" name="" class="form-control" id="wtdInp" placeholder="Withdraw amount"><br>
                         <button class="btn btn-success" id="wtd_btn">Withdraw</button>
                     </div>
@@ -81,6 +81,8 @@
         dpsButton.addEventListener('click', function(){
             var dpsInput = document.getElementById('dpsInp').value;
             var dpsAmount = parseFloat(dpsInput);
+            dpsAmount = dpsAmount || 0
+            if(dpsAmount < 0) return
             var currentDps = document.getElementById('currentDps').innerText;
             var currentDpsAmount = parseFloat(currentDps); 
             var totalDps = dpsAmount + currentDpsAmount;
@@ -97,6 +99,8 @@
         wtdButton.addEventListener('click', function(){
             var wtdInput = document.getElementById('wtdInp').value;
             var wtdAmount = parseFloat(wtdInput);
+            wtdAmount = wtdAmount || 0
+            if(wtdAmount < 0) return
             var currentWtd = document.getElementById('currentWtd').innerText;
             var currentWtdAmount = parseFloat(currentWtd);
             var totalWtd = wtdAmount + currentWtdAmount;
