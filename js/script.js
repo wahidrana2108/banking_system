@@ -21,7 +21,7 @@ dpsButton.addEventListener('click', function(){
     var dpsInput = document.getElementById('dpsInp').value;
     var dpsAmount = parseFloat(dpsInput);
     dpsAmount = dpsAmount || 0
-    if(dpsAmount < 0){
+    if(dpsAmount < 0.01){
         alert('Invalid Amount!');
         document.getElementById('dpsInp').value = "";
         return
@@ -48,7 +48,7 @@ wtdButton.addEventListener('click', function(){
     var wtdInput = document.getElementById('wtdInp').value;
     var wtdAmount = parseFloat(wtdInput);
     wtdAmount = wtdAmount || 0
-    if(wtdAmount < 0){
+    if(wtdAmount < 0.01){
         alert('Invalid Amount!');
         document.getElementById('wtdInp').value = "";
         return
