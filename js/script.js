@@ -21,7 +21,7 @@ dpsButton.addEventListener('click', function(){
     var dpsInput = document.getElementById('dpsInp').value;
     var dpsAmount = parseFloat(dpsInput);
     dpsAmount = dpsAmount || 0
-    if(dpsAmount < 0.01){
+    if(dpsAmount < 1){
         alert('Invalid Amount!');
         document.getElementById('dpsInp').value = "";
         return
@@ -48,7 +48,7 @@ wtdButton.addEventListener('click', function(){
     var wtdInput = document.getElementById('wtdInp').value;
     var wtdAmount = parseFloat(wtdInput);
     wtdAmount = wtdAmount || 0
-    if(wtdAmount < 0.01){
+    if(wtdAmount < 1){
         alert('Invalid Amount!');
         document.getElementById('wtdInp').value = "";
         return
@@ -63,7 +63,7 @@ wtdButton.addEventListener('click', function(){
     var balance = document.getElementById('totalAmount').innerText;
     var totalBalance = parseFloat(balance);
     var finalBalance = (totalBalance - wtdAmount - totalServiceAmount).toFixed(2);
-    if(finalBalance < 0.01){
+    if(finalBalance < 1){
         alert('Transaction  Failed!');
         document.getElementById('wtdInp').value = "";
         return
